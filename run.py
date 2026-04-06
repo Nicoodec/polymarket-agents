@@ -1,7 +1,8 @@
-import requests
+﻿import requests
 import json
 import os
 import re
+import subprocess
 from datetime import datetime
 from tools.polymarket_api import get_markets, filter_markets
 from tools.news_fetcher import build_context
@@ -228,9 +229,21 @@ Toma la decision final: BET o NO BET.
     save_state(cycle_dir, "decision_final.json", full_decision)
     return decision, full_decision
 
+def git_push(cycle_id):
+    try:
+        print("\nSincronizando con GitHub...")
+        subprocess.run(["git", "add", "."], check=True, capture_output=True)
+        subprocess.run(["git", "commit", "-m", f"ciclo {cycle_id}"], check=True, capture_output=True)
+        subprocess.run(["git", "push"], check=True, capture_output=True)
+        print("  [github] Dashboard actualizado correctamente")
+    except subprocess.CalledProcessError:
+        print("  [github] Nada nuevo que subir o error en push")
+    except Exception as e:
+        print(f"  [github] Error: {e}")
+
 def main():
     print("=" * 60)
-    print("POLYMARKET MULTI-AGENT TRADING SYSTEM")
+    print("NEXORA — POLYMARKET MULTI-AGENT TRADING SYSTEM")
     print("=" * 60)
 
     heavy_model, light_model = get_models()
@@ -242,7 +255,7 @@ def main():
     print(f"Ciclo: {cycle_id}")
 
     print("\n[1/5] SCOUT - Obteniendo mercados...")
-    markets = get_markets(limit=100)
+    markets = get_markets(limit=200)
     filtered = filter_markets(markets)
     print(f"  Mercados encontrados: {len(filtered)}")
     save_state(cycle_dir, "markets.json", filtered)
@@ -252,12 +265,12 @@ def main():
         return
 
     top_markets = sorted(filtered, key=lambda x: x['score'], reverse=True)[:5]
-    print(f"  Procesando top {len(top_markets)} mercados por volumen")
+    print(f"  Procesando top {len(top_markets)} mercados por score")
 
     for i, market in enumerate(top_markets):
         print(f"\n{'='*60}")
         print(f"MERCADO {i+1}/{len(top_markets)}: {market['question'][:60]}...")
-        print(f"Probabilidad: {market['probability']} | Volumen: {market['volume']:,.0f} USDC")
+        print(f"Probabilidad: {market['probability']} | Volumen: {market['volume']:,.0f} USDC | Score: {market['score']}")
 
         market_dir = os.path.join(cycle_dir, f"market_{i+1}")
 
@@ -287,12 +300,12 @@ def main():
                 cycle_id=cycle_id
             )
         else:
-            print("  [paper] Decision NO BET � no se registra apuesta")
+            print("  [paper] Decision NO BET — no se registra apuesta")
 
     print(f"\n{'='*60}")
     print(f"Ciclo completado. Estado guardado en: {cycle_dir}")
     show_summary()
+    git_push(cycle_id)
 
 if __name__ == "__main__":
     main()
-
