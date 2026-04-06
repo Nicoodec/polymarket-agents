@@ -1,0 +1,42 @@
+[
+  {
+    "id": "544092",
+    "question": "Will Harvey Weinstein be sentenced to no prison time?",
+    "probability": 0.3185,
+    "volume": 307391.1527120005,
+    "resolves_at": "2025-12-31T12:00:00Z",
+    "category": "unknown"
+  },
+  {
+    "id": "544095",
+    "question": "Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?",
+    "probability": 0.2405,
+    "volume": 132009.0190220001,
+    "resolves_at": "2025-12-31T12:00:00Z",
+    "category": "unknown"
+  },
+  {
+    "id": "544096",
+    "question": "Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?",
+    "probability": 0.2525,
+    "volume": 162375.89067700028,
+    "resolves_at": "2025-12-31T12:00:00Z",
+    "category": "unknown"
+  },
+  {
+    "id": "556062",
+    "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+    "probability": 0.1,
+    "volume": 5778266.372704084,
+    "resolves_at": "2025-12-31T00:00:00Z",
+    "category": "unknown"
+  },
+  {
+    "id": "556108",
+    "question": "Will MegaETH perform an airdrop by June 30? ",
+    "probability": 0.433,
+    "volume": 1018920.1086720013,
+    "resolves_at": "2026-02-01T05:00:00Z",
+    "category": "unknown"
+  }
+]

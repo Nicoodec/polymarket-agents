@@ -1,0 +1,11 @@
+{
+  "decision": "```json\n{\n  \"decision\": \"NO BET\",\n  \"razon\": \"El Devil's Advocate dio veredicto edge_debil y la confianza del analyst es solo media, además existen múltiples riesgos identificados (liquidez, acoso regulatorio, falta de transparencia).\",\n  \"stake_usdc\": 0.0,\n  \"confianza\": \"baja\",\n  \"mercado_id\": \"Will MegaETH perform an airdrop by June 30?\",\n  \"pregunta\": \"Will MegaETH perform an airdrop by June 30?\"\n}\n```",
+  "mercado": {
+    "id": "556108",
+    "question": "Will MegaETH perform an airdrop by June 30? ",
+    "probability": 0.433,
+    "volume": 1018920.1086720013,
+    "resolves_at": "2026-02-01T05:00:00Z",
+    "category": "unknown"
+  }
+}

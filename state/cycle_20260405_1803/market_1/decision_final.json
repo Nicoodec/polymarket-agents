@@ -1,0 +1,11 @@
+{
+  "decision": "",
+  "mercado": {
+    "id": "556062",
+    "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+    "probability": 0.1,
+    "volume": 5778266.372704084,
+    "resolves_at": "2025-12-31T00:00:00Z",
+    "category": "unknown"
+  }
+}

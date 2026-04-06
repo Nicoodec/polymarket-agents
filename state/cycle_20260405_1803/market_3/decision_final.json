@@ -1,0 +1,11 @@
+{
+  "decision": "{\n  \"decision\": \"NO BET\",\n  \"razon\": \"El mercado es fundamentalmente mal planteado ya que Harvey Weinstein falleció en 2021, haciendo la probabilidad de 31.85% una tautología sin edge real. El Devil's Advocate concluyó edge_debil y no hay valor apostable.\",\n  \"stake_usdc\": 0.0,\n  \"confianza\": \"alta\",\n  \"mercado_id\": \"Will Harvey Weinstein be sentenced to no prison time?\",\n  \"pregunta\": \"Will Harvey Weinstein be sentenced to no prison time?\"\n}",
+  "mercado": {
+    "id": "544092",
+    "question": "Will Harvey Weinstein be sentenced to no prison time?",
+    "probability": 0.3185,
+    "volume": 307391.1527120005,
+    "resolves_at": "2025-12-31T12:00:00Z",
+    "category": "unknown"
+  }
+}

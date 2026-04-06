@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Trading Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f0f0f;color:#e8e8e8;min-height:100vh;padding:2rem}
+h1{font-size:22px;font-weight:500;letter-spacing:-0.5px;margin-bottom:4px}
+.subtitle{font-size:13px;color:#666;margin-bottom:2rem}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem}
+.metric{background:#1a1a1a;border:0.5px solid #2a2a2a;border-radius:10px;padding:1rem}
+.metric-label{font-size:12px;color:#555;margin-bottom:6px}
+.metric-value{font-size:24px;font-weight:500}
+.metric-value.green{color:#5dca8f}
+.metric-value.red{color:#e05555}
+.metric-value.amber{color:#f0a84e}
+.metric-value.blue{color:#5a9cf8}
+.section-label{font-size:12px;font-weight:500;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.markets-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:2rem}
+.market-card{background:#1a1a1a;border:0.5px solid #2a2a2a;border-radius:12px;padding:1rem;cursor:pointer;transition:all 0.15s}
+.market-card:hover{border-color:#3a3a3a;background:#1e1e1e}
+.market-card.active{border:1.5px solid #5a9cf8}
+.market-card.bet{border-left:3px solid #5dca8f}
+.market-card.nobet{border-left:3px solid #e05555}
+.market-question{font-size:13px;font-weight:500;line-height:1.4;margin-bottom:10px;color:#e8e8e8}
+.market-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.badge{font-size:11px;padding:3px 8px;border-radius:6px;font-weight:500}
+.badge.bet{background:#0d2e1a;color:#5dca8f;border:0.5px solid #1a4d2a}
+.badge.nobet{background:#2e0d0d;color:#e05555;border:0.5px solid #4d1a1a}
+.badge.pending{background:#1e1e1e;color:#555;border:0.5px solid #2a2a2a}
+.conf{font-size:11px;padding:2px 7px;border-radius:20px}
+.conf.alta{background:#0d2e1a;color:#5dca8f}
+.conf.media{background:#2e1e0d;color:#f0a84e}
+.conf.baja{background:#2e0d0d;color:#e05555}
+.prob-bar{height:5px;background:#222;border-radius:3px;margin-bottom:5px;overflow:hidden}
+.prob-fill{height:100%;border-radius:3px}
+.prob-fill.market{background:#5a9cf8}
+.prob-fill.estimated{background:#5dca8f}
+.prob-fill.negative{background:#e05555}
+.prob-labels{display:flex;justify-content:space-between;font-size:11px;color:#555;margin-bottom:6px}
+.vol{font-size:11px;color:#444;margin-top:4px}
+.detail{background:#1a1a1a;border:0.5px solid #2a2a2a;border-radius:12px;padding:1.25rem;margin-bottom:2rem;display:none}
+.detail-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;gap:1rem}
+.detail-title{font-size:15px;font-weight:500;line-height:1.4;color:#e8e8e8}
+.tabs{display:flex;gap:0;margin-bottom:1.25rem;border-bottom:0.5px solid #2a2a2a}
+.tab{font-size:13px;padding:8px 16px;cursor:pointer;color:#555;border-bottom:2px solid transparent;margin-bottom:-0.5px;transition:color 0.1s}
+.tab:hover{color:#999}
+.tab.active{color:#e8e8e8;border-bottom-color:#5a9cf8}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.rounds{display:flex;flex-direction:column;gap:10px}
+.round{border:0.5px solid #2a2a2a;border-radius:8px;overflow:hidden}
+.round-header{padding:7px 12px;background:#141414;font-size:11px;font-weight:500;color:#555;text-transform:uppercase;letter-spacing:0.5px}
+.round-body{display:grid;grid-template-columns:1fr 1fr}
+.agent{padding:12px}
+.agent:first-child{border-right:0.5px solid #2a2a2a}
+.agent-name{font-size:11px;font-weight:500;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%}
+.dot.analyst{background:#5a9cf8}
+.dot.devil{background:#e07050}
+.agent-text{font-size:12px;color:#888;line-height:1.6}
+.kelly-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.25rem}
+.kelly-card{background:#141414;border:0.5px solid #2a2a2a;border-radius:8px;padding:0.8rem}
+.kelly-label{font-size:11px;color:#555;margin-bottom:5px}
+.kelly-val{font-size:20px;font-weight:500}
+.kelly-val.green{color:#5dca8f}
+.kelly-val.red{color:#e05555}
+.kelly-val.blue{color:#5a9cf8}
+.kelly-val.amber{color:#f0a84e}
+.chart-wrap{position:relative;width:100%;height:200px}
+.decision-box{padding:1.25rem;border-radius:10px;margin-top:1rem}
+.decision-box.bet{background:#0a1f10;border:0.5px solid #1a4d2a}
+.decision-box.nobet{background:#1f0a0a;border:0.5px solid #4d1a1a}
+.decision-label{font-size:22px;font-weight:500;margin-bottom:8px}
+.decision-label.bet{color:#5dca8f}
+.decision-label.nobet{color:#e05555}
+.decision-reason{font-size:13px;color:#888;line-height:1.6}
+.cycle-selector{display:flex;align-items:center;gap:10px;margin-bottom:2rem}
+.cycle-selector select{background:#1a1a1a;border:0.5px solid #2a2a2a;color:#e8e8e8;padding:6px 12px;border-radius:8px;font-size:13px;cursor:pointer}
+.cycle-selector label{font-size:13px;color:#555}
+.no-data{text-align:center;padding:3rem;color:#444;font-size:14px}
+.instructions{background:#141414;border:0.5px solid #2a2a2a;border-radius:10px;padding:1.25rem;margin-bottom:2rem}
+.instructions h3{font-size:14px;font-weight:500;margin-bottom:8px;color:#888}
+.instructions p{font-size:13px;color:#555;line-height:1.6}
+.instructions code{background:#1e1e1e;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:12px;color:#5a9cf8}
+</style>
+</head>
+<body>
+
+<h1>Polymarket trading system</h1>
+<div class="subtitle" id="cycle-label">Cargando datos...</div>
+
+<div class="instructions" id="instructions">
+  <h3>Como usar este dashboard</h3>
+  <p>Abre este archivo con un servidor local. Desde la carpeta del proyecto ejecuta: <code>python -m http.server 8080</code> y luego abre <code>http://localhost:8080/dashboard.html</code> en tu navegador. El dashboard cargara automaticamente los datos del ciclo mas reciente.</p>
+</div>
+
+<div class="cycle-selector">
+  <label>Ciclo:</label>
+  <select id="cycle-select" onchange="loadCycle(this.value)"></select>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-label">Mercados analizados</div><div class="metric-value blue" id="m-total">—</div></div>
+  <div class="metric"><div class="metric-label">Decisiones BET</div><div class="metric-value green" id="m-bets">—</div></div>
+  <div class="metric"><div class="metric-label">Decisiones NO BET</div><div class="metric-value red" id="m-nobets">—</div></div>
+  <div class="metric"><div class="metric-label">Edge promedio</div><div class="metric-value amber" id="m-edge">—</div></div>
+</div>
+
+<div class="section-label">Mercados del ciclo</div>
+<div class="markets-grid" id="markets-grid"><div class="no-data">Selecciona un ciclo para ver los mercados</div></div>
+
+<div class="detail" id="detail">
+  <div class="detail-header">
+    <div class="detail-title" id="detail-title"></div>
+    <span class="badge" id="detail-badge"></span>
+  </div>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('debate')">Debate</div>
+    <div class="tab" onclick="switchTab('riesgo')">Riesgo</div>
+    <div class="tab" onclick="switchTab('decision')">Decision</div>
+  </div>
+  <div class="tab-content active" id="tab-debate"><div class="rounds" id="rounds"></div></div>
+  <div class="tab-content" id="tab-riesgo">
+    <div class="kelly-cards" id="kelly-cards"></div>
+    <div class="chart-wrap"><canvas id="kelly-chart"></canvas></div>
+  </div>
+  <div class="tab-content" id="tab-decision">
+    <div class="decision-box" id="decision-box">
+      <div class="decision-label" id="decision-label"></div>
+      <div class="decision-reason" id="decision-reason"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let kellyChart = null;
+let allCycles = [];
+let currentCycleData = null;
+
+async function discoverCycles() {
+  try {
+    const r = await fetch('state/');
+    const text = await r.text();
+    const matches = [...text.matchAll(/cycle_(\d{8}_\d{4})/g)];
+    const cycles = [...new Set(matches.map(m => m[1]))].sort().reverse();
+    return cycles;
+  } catch(e) {
+    return [];
+  }
+}
+
+async function loadCycleData(cycleId) {
+  const base = state/cycle_;
+  const markets = [];
+  for (let i = 1; i <= 3; i++) {
+    try {
+      const [ctx, d1, d2, d3, risk, dec] = await Promise.all([
+        fetch(${base}/market_/context.json).then(r=>r.json()).catch(()=>null),
+        fetch(${base}/market_/debate_ronda_1.json).then(r=>r.json()).catch(()=>null),
+        fetch(${base}/market_/debate_ronda_2.json).then(r=>r.json()).catch(()=>null),
+        fetch(${base}/market_/debate_ronda_3.json).then(r=>r.json()).catch(()=>null),
+        fetch(${base}/market_/risk_manager.json).then(r=>r.json()).catch(()=>null),
+        fetch(${base}/market_/decision_final.json).then(r=>r.json()).catch(()=>null),
+      ]);
+      if (!ctx) continue;
+      const market = ctx.mercado;
+      const decText = dec ? dec.decision : '';
+      const isBet = decText.toUpperCase().includes('BET') && !decText.toUpperCase().includes('NO BET');
+      const kelly = risk && risk.kelly_calculado ? risk.kelly_calculado : {};
+      const confMatch = decText.match(/confianza["\s:]+(\w+)/i);
+      const conf = confMatch ? confMatch[1].toLowerCase() : 'media';
+      markets.push({
+        id: i,
+        question: market.question,
+        probability: market.probability,
+        estimated: kelly.edge ? market.probability + kelly.edge : market.probability,
+        volume: market.volume,
+        decision: isBet ? 'BET' : 'NO BET',
+        confidence: conf,
+        kelly: kelly.kelly_fraccionado || 0,
+        edge: kelly.edge || 0,
+        reason: decText.replace(/`json|`/g,'').trim(),
+        rounds: [d1,d2,d3].filter(Boolean).map(r => ({
+          analyst: r.analyst || '',
+          devil: r.devil || ''
+        })),
+        riskRaw: risk ? risk.respuesta_modelo : ''
+      });
+    } catch(e) { continue; }
+  }
+  return markets;
+}
+
+async function init() {
+  const cycles = await discoverCycles();
+  const sel = document.getElementById('cycle-select');
+  if (cycles.length === 0) {
+    sel.innerHTML = '<option value="">No hay ciclos disponibles</option>';
+    document.getElementById('cycle-label').textContent = 'Ejecuta python run.py para generar el primer ciclo';
+    return;
+  }
+  sel.innerHTML = cycles.map(c => <option value="">Ciclo </option>).join('');
+  loadCycle(cycles[0]);
+}
+
+async function loadCycle(cycleId) {
+  if (!cycleId) return;
+  document.getElementById('cycle-label').textContent = Ciclo:  — cargando...;
+  document.getElementById('instructions').style.display = 'none';
+  const markets = await loadCycleData(cycleId);
+  currentCycleData = markets;
+  document.getElementById('cycle-label').textContent = Ciclo: ;
+  document.getElementById('m-total').textContent = markets.length;
+  const bets = markets.filter(m => m.decision === 'BET').length;
+  document.getElementById('m-bets').textContent = bets;
+  document.getElementById('m-nobets').textContent = markets.length - bets;
+  const edges = markets.map(m => m.edge).filter(e => e !== 0);
+  const avgEdge = edges.length ? edges.reduce((a,b)=>a+b,0)/edges.length : 0;
+  document.getElementById('m-edge').textContent = (avgEdge*100).toFixed(1) + '%';
+  renderMarkets(markets);
+  document.getElementById('detail').style.display = 'none';
+}
+
+function renderMarkets(markets) {
+  const grid = document.getElementById('markets-grid');
+  if (!markets.length) {
+    grid.innerHTML = '<div class="no-data">No se encontraron mercados en este ciclo</div>';
+    return;
+  }
+  grid.innerHTML = '';
+  markets.forEach(m => {
+    const edgePct = (m.edge * 100).toFixed(1);
+    const edgeColor = m.edge >= 0 ? '#5dca8f' : '#e05555';
+    const card = document.createElement('div');
+    card.className = market-card ;
+    card.innerHTML = 
+      <div class="market-question"></div>
+      <div class="market-meta">
+        <span class="badge "></span>
+        <span class="conf "></span>
+      </div>
+      <div class="prob-bar"><div class="prob-fill market" style="width:%"></div></div>
+      <div class="prob-bar"><div class="prob-fill " style="width:%"></div></div>
+      <div class="prob-labels">
+        <span>Mercado: %</span>
+        <span style="color:">Edge: %</span>
+        <span>Est: %</span>
+      </div>
+      <div class="vol">Vol: import run{(m.volume/1000).toFixed(0)}K</div>
+    ;
+    card.onclick = (e) => {
+      document.querySelectorAll('.market-card').forEach(c=>c.classList.remove('active'));
+      card.classList.add('active');
+      showDetail(m);
+    };
+    grid.appendChild(card);
+  });
+}
+
+function showDetail(m) {
+  document.getElementById('detail').style.display = 'block';
+  document.getElementById('detail-title').textContent = m.question;
+  const badge = document.getElementById('detail-badge');
+  badge.className = adge ;
+  badge.textContent = m.decision;
+
+  const rounds = document.getElementById('rounds');
+  rounds.innerHTML = m.rounds.length ? '' : '<div class="no-data">No hay datos de debate para este mercado</div>';
+  m.rounds.forEach((r, i) => {
+    const div = document.createElement('div');
+    div.className = 'round';
+    const cleanAnalyst = r.analyst.replace(/`json|`/g,'').substring(0,600);
+    const cleanDevil = r.devil.replace(/`json|`/g,'').substring(0,600);
+    div.innerHTML = 
+      <div class="round-header">Ronda </div>
+      <div class="round-body">
+        <div class="agent">
+          <div class="agent-name"><span class="dot analyst"></span>Analyst</div>
+          <div class="agent-text"></div>
+        </div>
+        <div class="agent">
+          <div class="agent-name"><span class="dot devil"></span>Devil's Advocate</div>
+          <div class="agent-text"></div>
+        </div>
+      </div>
+    ;
+    rounds.appendChild(div);
+  });
+
+  document.getElementById('kelly-cards').innerHTML = 
+    <div class="kelly-card"><div class="kelly-label">Kelly completo</div><div class="kelly-val ">%</div></div>
+    <div class="kelly-card"><div class="kelly-label">Kelly 1/4</div><div class="kelly-val amber">%</div></div>
+    <div class="kelly-card"><div class="kelly-label">Stake recomendado</div><div class="kelly-val blue">import run{Math.min(m.kelly*250,20).toFixed(0)}</div></div>
+    <div class="kelly-card"><div class="kelly-label">Edge</div><div class="kelly-val ">%</div></div>
+  ;
+
+  if (kellyChart) { kellyChart.destroy(); kellyChart = null; }
+  const ctx = document.getElementById('kelly-chart').getContext('2d');
+  kellyChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Prob. mercado', 'Prob. estimada', 'Edge absoluto'],
+      datasets: [{
+        data: [(m.probability*100).toFixed(1), (Math.max(0,m.estimated)*100).toFixed(1), (Math.abs(m.edge)*100).toFixed(1)],
+        backgroundColor: ['#5a9cf8','#5dca8f', m.edge >= 0 ? '#5dca8f' : '#e05555'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { ticks: { callback: v => v + '%', color: '#555' }, grid: { color: '#1e1e1e' } },
+        x: { ticks: { color: '#555' }, grid: { display: false } }
+      }
+    }
+  });
+
+  const box = document.getElementById('decision-box');
+  box.className = decision-box ;
+  const label = document.getElementById('decision-label');
+  label.className = decision-label ;
+  label.textContent = m.decision;
+  document.getElementById('decision-reason').textContent = m.reason.substring(0, 800);
+
+  switchTab('debate');
+  document.getElementById('detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function switchTab(name) {
+  const names = ['debate','riesgo','decision'];
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', names[i] === name));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+init();
+</script>
+</body>
+</html>

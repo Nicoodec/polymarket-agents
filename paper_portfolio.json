@@ -1,0 +1,10 @@
+﻿{
+  "bankroll_inicial": 2000,
+  "bankroll_actual": 2000,
+  "total_apostado": 0,
+  "total_ganado": 0,
+  "total_perdido": 0,
+  "win_rate": 0,
+  "roi": 0,
+  "apuestas": []
+}

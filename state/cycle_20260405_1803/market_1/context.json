@@ -1,0 +1,16 @@
+{
+  "mercado": {
+    "id": "556062",
+    "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+    "probability": 0.1,
+    "volume": 5778266.372704084,
+    "resolves_at": "2025-12-31T00:00:00Z",
+    "category": "unknown"
+  },
+  "noticias": [
+    {
+      "error": "https://duckduckgo.com/news.js?l=us-en&o=json&noamp=1&q=MegaETH+market+cap+%28FDV%29+%3E%242B+one+day+after+launch%3F&vqd=4-305630100929030226283098711900532431930&p=-1 403 Ratelimit"
+    }
+  ],
+  "timestamp": "2026-04-05T18:03:47.127254"
+}
