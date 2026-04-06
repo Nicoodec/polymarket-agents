@@ -1,0 +1,25 @@
+{
+  "decision": "",
+  "mercado": {
+    "id": "561370",
+    "question": "Will Kon Knueppel win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.3695,
+    "volume": 707837.8100200003,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 6.5
+  },
+  "prob_estimada": 0.48,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.1753,
+    "kelly_fraccionado": 0.0438,
+    "apostar": true,
+    "edge": 0.1105,
+    "stake_kelly_usdc": 87.6,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 40.0,
+    "limitado_por_max": true
+  }
+}

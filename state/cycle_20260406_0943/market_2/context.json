@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "553856",
+    "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+    "probability": 0.385,
+    "volume": 6008411.5833349,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 5.5
+  },
+  "noticias": [
+    {
+      "titulo": "Thunder’s dream seeding, matchup scenarios for 2026 NBA Playoffs",
+      "resumen": "The Thunder should be favored in every series they come up against in the 2026 NBA playoffs, but some matchups are more ...",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/thunder-dream-seeding-matchup-scenarios-052018317.html",
+      "fecha": "2026-04-02T10:10:44+00:00"
+    },
+    {
+      "titulo": "Oklahoma City Thunder become first team to clinch NBA playoff berth",
+      "resumen": "For the third consecutive year, the Oklahoma City Thunder have clinched a trip to the NBA playoffs. They seek back-to-back ...",
+      "fuente": "USA TODAY",
+      "url": "https://www.usatoday.com/story/sports/nba/thunder/2026/03/17/oklahoma-city-thunder-clinch-2026-nba-playoff-berth/89202043007/",
+      "fecha": "2026-03-16T23:00:00+00:00"
+    },
+    {
+      "titulo": "OKC Thunder magic number to clinch top seed in West, NBA playoff picture",
+      "resumen": "What is OKC Thunder magic number to get No. 1 seed in Western Conference for 2026 NBA Playoffs? Where Thunder, Spurs fit in ...",
+      "fuente": "USA TODAY",
+      "url": "https://www.usatoday.com/story/sports/nba/thunder/2026/03/31/okc-thunder-magic-number-nba-playoffs-standings-western-conference-seeding/89410812007/",
+      "fecha": "2026-04-01T10:10:44+00:00"
+    },
+    {
+      "titulo": "Thunder clinch spot in NBA playoffs, become first team to punch ticket to 2026 postseason",
+      "resumen": "The Oklahoma City Thunder faced major expectations after going 68-14, securing the top playoff seed in the West and winning the NBA championship last season. An encore was going to be tough. While ...",
+      "fuente": "AOL",
+      "url": "https://www.aol.com/articles/thunder-clinch-spot-nba-playoffs-013225061.html",
+      "fecha": "2026-03-17T23:00:00+00:00"
+    },
+    {
+      "titulo": "OKC Thunder growing into NBA's top villain was inevitable | Mussatto",
+      "resumen": "The OKC Thunder's consistent success has turned them into the NBA's new villains, facing backlash and criticism.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/okc-thunder-growing-nbas-top-113100247.html",
+      "fecha": "2026-04-03T10:10:44+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "2026 NBA Championship Odds: Spur of the Moment - Yahoo Sports",
+      "resumen": "7 days ago·The latest 2026 NBA Championship odds and analysis, with the Oklahoma City Thunder (+130) drawing the shortest odds to win.",
+      "url": "https://sports.yahoo.com/articles/2026-nba-championship-odds-thunder-150100421.html"
+    },
+    {
+      "titulo": "Thunder are projected to win 62.5 games in 2026. Is the line too high ...",
+      "resumen": "7 Jul 2025·For reference, they have a mammoth 7 game higher projected win total than any other team in the league. (Odds from DKSportsbook).",
+      "url": "https://www.reddit.com/r/Thunder/comments/1ltp1ic/thunder_are_projected_to_win_625_games_in_2026_is/"
+    },
+    {
+      "titulo": "NBA Championship Odds 2026: Thunder Favored to Repeat - BetMGM",
+      "resumen": "6 days ago·The Oklahoma City Thunder are betting favorites to win the 2026 NBA championship. Oklahoma City won the 2025 NBA Finals over the Indiana Pacers.Missing:rate| Show results with:rate",
+      "url": "https://sports.betmgm.com/en/blog/nba/finals-odds-championship-nba-betting-bm05/"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T10:10:45.536084"
+}

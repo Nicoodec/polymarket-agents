@@ -1,0 +1,6 @@
+{
+  "ronda": 1,
+  "analyst": "{\n  \"ronda\": 1,\n  \"probabilidad_estimada\": 0.42,\n  \"intervalo_confianza\": {\"min\": 0.35, \"max\": 0.49},\n  \"confianza\": \"media\",\n  \"argumentos\": [\"Knueppel ha superado a Flagg en las apuestas tras All-Star break, siendo favorito actual con -125\", \"Flagg era el 1er pick general pero Knueppel ha demostrado impacto más consistente en Charlotte\", \"La competencia es entre dos excompañeros de Duke, lo que sugiere un duelo de alta calidad\"],\n  \"factores_de_riesgo\": [\"Lesiones repentinas de Flagg podrían cambiar el panorama drásticamente\", \"Knueppel podría tener problemas de consistencia en el final de temporada\", \"Otros rookies no mencionados podrían emerger con estadísticas más impresionantes\"],\n  \"probabilidad_final\": 0.42\n}",
+  "devil": "",
+  "prob_extraida": 0.42
+}

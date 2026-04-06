@@ -1,0 +1,15 @@
+{
+  "prob_estimada": 0.385,
+  "confianza": "media",
+  "respuesta_modelo": "ERROR: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/chat",
+  "kelly_calculado": {
+    "kelly_completo": 0.0,
+    "kelly_fraccionado": 0.0,
+    "apostar": false,
+    "edge": 0.0,
+    "stake_kelly_usdc": 0.0,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 0.0,
+    "limitado_por_max": false
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "561370",
+    "question": "Will Kon Knueppel win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.3695,
+    "volume": 707837.8100200003,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 6.5
+  },
+  {
+    "id": "553856",
+    "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+    "probability": 0.385,
+    "volume": 6008411.5833349,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 5.5
+  },
+  {
+    "id": "561365",
+    "question": "Will Cooper Flagg win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.6295,
+    "volume": 413947.0235919991,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 5.2
+  },
+  {
+    "id": "553866",
+    "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+    "probability": 0.173,
+    "volume": 11627869.294228876,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 4.4
+  },
+  {
+    "id": "553862",
+    "question": "Will the Boston Celtics win the 2026 NBA Finals?",
+    "probability": 0.118,
+    "volume": 5850950.83917008,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 3.3
+  },
+  {
+    "id": "553865",
+    "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
+    "probability": 0.095,
+    "volume": 3601344.7602989883,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 3.3
+  },
+  {
+    "id": "553828",
+    "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+    "probability": 0.199,
+    "volume": 13375032.223213071,
+    "resolves_at": "2026-06-30",
+    "category": "unknown",
+    "days_to_resolve": 84,
+    "score": 3.2
+  },
+  {
+    "id": "553830",
+    "question": "Will the Tampa Bay Lightning win the 2026 NHL Stanley Cup?",
+    "probability": 0.15,
+    "volume": 1432554.8622209853,
+    "resolves_at": "2026-06-30",
+    "category": "unknown",
+    "days_to_resolve": 84,
+    "score": 3.2
+  },
+  {
+    "id": "553826",
+    "question": "Will the Edmonton Oilers win the 2026 NHL Stanley Cup?",
+    "probability": 0.085,
+    "volume": 446768.5915080016,
+    "resolves_at": "2026-06-30",
+    "category": "economics",
+    "days_to_resolve": 84,
+    "score": 2.4
+  },
+  {
+    "id": "553824",
+    "question": "Will the Carolina Hurricanes win the 2026 NHL Stanley Cup?",
+    "probability": 0.115,
+    "volume": 256701.37409000073,
+    "resolves_at": "2026-06-30",
+    "category": "unknown",
+    "days_to_resolve": 84,
+    "score": 1.6
+  }
+]

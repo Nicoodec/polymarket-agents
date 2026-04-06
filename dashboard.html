@@ -88,10 +88,20 @@ canvas#rain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer
 .no-data{text-align:center;padding:3rem;color:#444;font-size:14px}
 .portfolio-bar{background:#1a1a1a;border:0.5px solid #2a2a2a;border-radius:12px;padding:1.25rem;margin-bottom:2rem}
 .portfolio-title{font-size:12px;font-weight:500;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem}
-.portfolio-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.portfolio-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:1.5rem}
 .p-metric{text-align:center}
 .p-label{font-size:11px;color:#444;margin-bottom:4px}
 .p-value{font-size:18px;font-weight:500}
+.history-wrap{position:relative;width:100%;height:180px}
+.apuestas-list{margin-top:1.25rem}
+.apuesta-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid #1e1e1e;font-size:12px}
+.apuesta-row:last-child{border-bottom:none}
+.apuesta-question{color:#888;flex:1;margin-right:1rem}
+.apuesta-stake{color:#555;margin-right:1rem;white-space:nowrap}
+.apuesta-result{font-weight:500;white-space:nowrap}
+.apuesta-result.win{color:#5dca8f}
+.apuesta-result.loss{color:#e05555}
+.apuesta-result.pendiente{color:#555}
 </style>
 </head>
 <body>
@@ -123,6 +133,8 @@ canvas#rain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer
     <div class="p-metric"><div class="p-label">Win rate</div><div class="p-value" id="p-winrate">—</div></div>
     <div class="p-metric"><div class="p-label">Apuestas</div><div class="p-value" style="color:#888" id="p-apuestas">—</div></div>
   </div>
+  <div class="history-wrap"><canvas id="history-chart"></canvas></div>
+  <div class="apuestas-list" id="apuestas-list"></div>
 </div>
 
 <div class="metrics">
@@ -169,7 +181,6 @@ canvas#rain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer
 const canvas = document.getElementById('rain');
 const ctx = canvas.getContext('2d');
 let drops = [];
-const CHAR = '$';
 
 function initRain() {
   canvas.width = window.innerWidth;
@@ -178,76 +189,131 @@ function initRain() {
   const cols = Math.floor(canvas.width / 20);
   for (let i = 0; i < cols; i++) {
     if (Math.random() > 0.7) {
-      drops.push({
-        x: i * 20 + 10,
-        y: Math.random() * -canvas.height,
-        speed: 1 + Math.random() * 2.5,
-        opacity: 0.1 + Math.random() * 0.4,
-        size: 10 + Math.random() * 6
-      });
+      drops.push({x:i*20+10,y:Math.random()*-canvas.height,speed:1+Math.random()*2.5,opacity:0.1+Math.random()*0.4,size:10+Math.random()*6});
     }
   }
 }
 
 function drawRain() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drops.forEach(d => {
-    ctx.font = d.size + 'px monospace';
-    ctx.fillStyle = 'rgba(200,168,75,' + d.opacity + ')';
-    ctx.fillText(CHAR, d.x, d.y);
-    d.y += d.speed;
-    if (d.y > canvas.height + 20) {
-      d.y = -20;
-      d.x = Math.floor(Math.random() * canvas.width / 20) * 20 + 10;
-    }
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drops.forEach(d=>{
+    ctx.font=d.size+'px monospace';
+    ctx.fillStyle='rgba(200,168,75,'+d.opacity+')';
+    ctx.fillText('$',d.x,d.y);
+    d.y+=d.speed;
+    if(d.y>canvas.height+20){d.y=-20;d.x=Math.floor(Math.random()*canvas.width/20)*20+10;}
   });
   requestAnimationFrame(drawRain);
 }
 
-window.addEventListener('resize', initRain);
+window.addEventListener('resize',initRain);
 initRain();
 drawRain();
 
 let kellyChart = null;
+let historyChart = null;
 
 async function discoverCycles() {
   try {
     const r = await fetch('state/');
     const text = await r.text();
     const matches = [...text.matchAll(/cycle_(\d{8}_\d{4})/g)];
-    return [...new Set(matches.map(m => m[1]))].sort().reverse();
-  } catch(e) { return []; }
+    return [...new Set(matches.map(m=>m[1]))].sort().reverse();
+  } catch(e){return[];}
 }
 
 async function loadPortfolio() {
   try {
     const r = await fetch('paper_portfolio.json');
-    if (!r.ok) return;
+    if(!r.ok) return;
     const p = await r.json();
-    document.getElementById('portfolio-bar').style.display = 'block';
-    document.getElementById('p-inicial').textContent = p.bankroll_inicial + ' USDC';
-    const actual = p.bankroll_actual;
-    const el = document.getElementById('p-actual');
-    el.textContent = actual + ' USDC';
-    el.style.color = actual >= p.bankroll_inicial ? '#5dca8f' : '#e05555';
-    const roi = p.roi * 100;
-    const roiEl = document.getElementById('p-roi');
-    roiEl.textContent = (roi >= 0 ? '+' : '') + roi.toFixed(1) + '%';
-    roiEl.style.color = roi >= 0 ? '#5dca8f' : '#e05555';
-    const wr = p.win_rate * 100;
-    const wrEl = document.getElementById('p-winrate');
-    wrEl.textContent = wr.toFixed(1) + '%';
-    wrEl.style.color = wr >= 50 ? '#5dca8f' : '#f0a84e';
-    document.getElementById('p-apuestas').textContent = p.apuestas.length;
-  } catch(e) {}
+    document.getElementById('portfolio-bar').style.display='block';
+    document.getElementById('p-inicial').textContent=p.bankroll_inicial+' USDC';
+    const actual=p.bankroll_actual;
+    const el=document.getElementById('p-actual');
+    el.textContent=actual+' USDC';
+    el.style.color=actual>=p.bankroll_inicial?'#5dca8f':'#e05555';
+    const roi=p.roi*100;
+    const roiEl=document.getElementById('p-roi');
+    roiEl.textContent=(roi>=0?'+':'')+roi.toFixed(1)+'%';
+    roiEl.style.color=roi>=0?'#5dca8f':'#e05555';
+    const wr=p.win_rate*100;
+    const wrEl=document.getElementById('p-winrate');
+    wrEl.textContent=wr.toFixed(1)+'%';
+    wrEl.style.color=wr>=50?'#5dca8f':'#f0a84e';
+    document.getElementById('p-apuestas').textContent=p.apuestas.length;
+
+    buildHistoryChart(p);
+    buildApuestasList(p);
+  } catch(e){}
+}
+
+function buildHistoryChart(p) {
+  const apuestas = p.apuestas;
+  const labels = ['Inicio'];
+  const values = [p.bankroll_inicial];
+
+  apuestas.forEach((a,i) => {
+    labels.push('#'+a.id+' '+a.mercado.substring(0,20)+'...');
+    if(a.estado==='resuelta' && a.bankroll_despues){
+      values.push(a.bankroll_despues);
+    } else {
+      values.push(values[values.length-1]);
+    }
+  });
+
+  if(historyChart){historyChart.destroy();historyChart=null;}
+
+  const colors = values.map((v,i) => i===0 ? '#5a9cf8' : v>=values[i-1] ? '#5dca8f' : '#e05555');
+
+  historyChart = new Chart(document.getElementById('history-chart').getContext('2d'),{
+    type:'line',
+    data:{
+      labels,
+      datasets:[{
+        data:values,
+        borderColor:'#c8a84b',
+        backgroundColor:'rgba(200,168,75,0.05)',
+        pointBackgroundColor:colors,
+        pointRadius:5,
+        pointHoverRadius:7,
+        tension:0.3,
+        fill:true
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:v=>v.raw.toFixed(2)+' USDC'}}},
+      scales:{
+        y:{ticks:{callback:v=>v+' USDC',color:'#555'},grid:{color:'#1e1e1e'}},
+        x:{ticks:{color:'#444',maxRotation:0,callback:(v,i)=>i===0?'Inicio':'#'+(i)},grid:{display:false}}
+      }
+    }
+  });
+}
+
+function buildApuestasList(p) {
+  const list = document.getElementById('apuestas-list');
+  if(!p.apuestas.length){list.innerHTML='';return;}
+  list.innerHTML = '<div style="font-size:11px;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Historial de apuestas</div>' +
+    p.apuestas.slice().reverse().map(a => {
+      const resultClass = a.resultado==='win'?'win':a.resultado==='loss'?'loss':'pendiente';
+      const resultText = a.resultado==='win'?'+'+a.ganancia_usdc+' USDC':a.resultado==='loss'?a.ganancia_usdc+' USDC':'Pendiente';
+      return '<div class="apuesta-row">'+
+        '<span class="apuesta-question">'+a.mercado.substring(0,50)+'...</span>'+
+        '<span class="apuesta-stake">'+a.stake_usdc+' USDC</span>'+
+        '<span class="apuesta-result '+resultClass+'">'+resultText+'</span>'+
+        '</div>';
+    }).join('');
 }
 
 async function loadCycleData(cycleId) {
-  const base = 'state/cycle_' + cycleId;
-  const markets = [];
-  for (let i = 1; i <= 5; i++) {
-    try {
-      const [ctx2, d1, d2, d3, risk, dec] = await Promise.all([
+  const base='state/cycle_'+cycleId;
+  const markets=[];
+  for(let i=1;i<=5;i++){
+    try{
+      const [ctx2,d1,d2,d3,risk,dec]=await Promise.all([
         fetch(base+'/market_'+i+'/context.json').then(r=>r.json()).catch(()=>null),
         fetch(base+'/market_'+i+'/debate_ronda_1.json').then(r=>r.json()).catch(()=>null),
         fetch(base+'/market_'+i+'/debate_ronda_2.json').then(r=>r.json()).catch(()=>null),
@@ -255,128 +321,108 @@ async function loadCycleData(cycleId) {
         fetch(base+'/market_'+i+'/risk_manager.json').then(r=>r.json()).catch(()=>null),
         fetch(base+'/market_'+i+'/decision_final.json').then(r=>r.json()).catch(()=>null),
       ]);
-      if (!ctx2) continue;
-      const market = ctx2.mercado;
-      const decText = dec ? dec.decision : '';
-      const isBet = decText.toUpperCase().includes('BET') && !decText.toUpperCase().includes('NO BET');
-      const kelly = risk && risk.kelly_calculado ? risk.kelly_calculado : {};
-      const probEst = risk ? (risk.prob_estimada || market.probability) : market.probability;
-      const conf = risk ? (risk.confianza || 'media') : 'media';
-      markets.push({
-        id: i,
-        question: market.question,
-        probability: market.probability,
-        estimated: probEst,
-        volume: market.volume,
-        decision: isBet ? 'BET' : 'NO BET',
-        confidence: conf,
-        kelly: kelly.kelly_fraccionado || 0,
-        edge: kelly.edge || (probEst - market.probability),
-        reason: decText.replace(/`json|`/g,'').trim(),
-        rounds: [d1,d2,d3].filter(Boolean).map(r=>({analyst:r.analyst||'',devil:r.devil||''}))
-      });
-    } catch(e) { continue; }
+      if(!ctx2) continue;
+      const market=ctx2.mercado;
+      const decText=dec?dec.decision:'';
+      const isBet=decText.toUpperCase().includes('BET')&&!decText.toUpperCase().includes('NO BET');
+      const kelly=risk&&risk.kelly_calculado?risk.kelly_calculado:{};
+      const probEst=risk?(risk.prob_estimada||market.probability):market.probability;
+      const conf=risk?(risk.confianza||'media'):'media';
+      markets.push({id:i,question:market.question,probability:market.probability,estimated:probEst,volume:market.volume,decision:isBet?'BET':'NO BET',confidence:conf,kelly:kelly.kelly_fraccionado||0,edge:kelly.edge||(probEst-market.probability),reason:decText.replace(/`json|`/g,'').trim(),rounds:[d1,d2,d3].filter(Boolean).map(r=>({analyst:r.analyst||'',devil:r.devil||''}))});
+    }catch(e){continue;}
   }
   return markets;
 }
 
 async function init() {
   await loadPortfolio();
-  const cycles = await discoverCycles();
-  const sel = document.getElementById('cycle-select');
-  if (!cycles.length) {
-    sel.innerHTML = '<option>No hay ciclos</option>';
-    document.getElementById('cycle-label').textContent = 'Ejecuta python run.py para generar el primer ciclo';
+  const cycles=await discoverCycles();
+  const sel=document.getElementById('cycle-select');
+  if(!cycles.length){
+    sel.innerHTML='<option>No hay ciclos</option>';
+    document.getElementById('cycle-label').textContent='Ejecuta python run.py para generar el primer ciclo';
     return;
   }
-  sel.innerHTML = cycles.map(c => '<option value="'+c+'">Ciclo '+c+'</option>').join('');
+  sel.innerHTML=cycles.map(c=>'<option value="'+c+'">Ciclo '+c+'</option>').join('');
   loadCycle(cycles[0]);
 }
 
 async function loadCycle(cycleId) {
-  if (!cycleId) return;
-  document.getElementById('cycle-label').textContent = 'Ciclo: ' + cycleId + ' — cargando...';
-  const markets = await loadCycleData(cycleId);
-  document.getElementById('cycle-label').textContent = 'Ciclo: ' + cycleId;
-  document.getElementById('m-total').textContent = markets.length;
-  const bets = markets.filter(m=>m.decision==='BET').length;
-  document.getElementById('m-bets').textContent = bets;
-  document.getElementById('m-nobets').textContent = markets.length - bets;
-  const edges = markets.map(m=>m.edge).filter(e=>e!==0);
-  const avgEdge = edges.length ? edges.reduce((a,b)=>a+b,0)/edges.length : 0;
-  document.getElementById('m-edge').textContent = (avgEdge*100).toFixed(1)+'%';
+  if(!cycleId) return;
+  document.getElementById('cycle-label').textContent='Ciclo: '+cycleId+' — cargando...';
+  const markets=await loadCycleData(cycleId);
+  document.getElementById('cycle-label').textContent='Ciclo: '+cycleId;
+  document.getElementById('m-total').textContent=markets.length;
+  const bets=markets.filter(m=>m.decision==='BET').length;
+  document.getElementById('m-bets').textContent=bets;
+  document.getElementById('m-nobets').textContent=markets.length-bets;
+  const edges=markets.map(m=>m.edge).filter(e=>e!==0);
+  const avgEdge=edges.length?edges.reduce((a,b)=>a+b,0)/edges.length:0;
+  document.getElementById('m-edge').textContent=(avgEdge*100).toFixed(1)+'%';
   renderMarkets(markets);
-  document.getElementById('detail').style.display = 'none';
+  document.getElementById('detail').style.display='none';
 }
 
 function renderMarkets(markets) {
-  const grid = document.getElementById('markets-grid');
-  if (!markets.length) { grid.innerHTML = '<div class="no-data">No se encontraron mercados</div>'; return; }
-  grid.innerHTML = '';
-  markets.forEach(m => {
-    const edgePct = (m.edge*100).toFixed(1);
-    const edgeColor = m.edge>=0?'#5dca8f':'#e05555';
-    const card = document.createElement('div');
-    card.className = 'market-card '+(m.decision==='BET'?'bet':'nobet');
-    card.innerHTML = '<div class="market-question">'+m.question+'</div>'+
+  const grid=document.getElementById('markets-grid');
+  if(!markets.length){grid.innerHTML='<div class="no-data">No se encontraron mercados</div>';return;}
+  grid.innerHTML='';
+  markets.forEach(m=>{
+    const edgePct=(m.edge*100).toFixed(1);
+    const edgeColor=m.edge>=0?'#5dca8f':'#e05555';
+    const card=document.createElement('div');
+    card.className='market-card '+(m.decision==='BET'?'bet':'nobet');
+    card.innerHTML='<div class="market-question">'+m.question+'</div>'+
       '<div class="market-meta"><span class="badge '+(m.decision==='BET'?'bet':'nobet')+'">'+m.decision+'</span><span class="conf '+m.confidence+'">'+m.confidence+'</span></div>'+
       '<div class="prob-bar"><div class="prob-fill market" style="width:'+Math.min(m.probability*100,100)+'%"></div></div>'+
       '<div class="prob-bar"><div class="prob-fill '+(m.estimated>=0?'estimated':'negative')+'" style="width:'+Math.min(Math.abs(m.estimated)*100,100)+'%"></div></div>'+
       '<div class="prob-labels"><span>Mercado: '+(m.probability*100).toFixed(1)+'%</span><span style="color:'+edgeColor+'">Edge: '+edgePct+'%</span><span>Est: '+(Math.max(0,m.estimated)*100).toFixed(0)+'%</span></div>'+
       '<div class="vol">Vol: $'+(m.volume/1000).toFixed(0)+'K</div>';
-    card.onclick = () => { document.querySelectorAll('.market-card').forEach(c=>c.classList.remove('active')); card.classList.add('active'); showDetail(m); };
+    card.onclick=()=>{document.querySelectorAll('.market-card').forEach(c=>c.classList.remove('active'));card.classList.add('active');showDetail(m);};
     grid.appendChild(card);
   });
 }
 
 function showDetail(m) {
-  document.getElementById('detail').style.display = 'block';
-  document.getElementById('detail-title').textContent = m.question;
-  const badge = document.getElementById('detail-badge');
-  badge.className = 'badge '+(m.decision==='BET'?'bet':'nobet');
-  badge.textContent = m.decision;
-
-  const rounds = document.getElementById('rounds');
-  rounds.innerHTML = '';
+  document.getElementById('detail').style.display='block';
+  document.getElementById('detail-title').textContent=m.question;
+  const badge=document.getElementById('detail-badge');
+  badge.className='badge '+(m.decision==='BET'?'bet':'nobet');
+  badge.textContent=m.decision;
+  const rounds=document.getElementById('rounds');
+  rounds.innerHTML='';
   m.rounds.forEach((r,i)=>{
-    const div = document.createElement('div');
-    div.className = 'round';
-    div.innerHTML = '<div class="round-header">Ronda '+(i+1)+'</div>'+
+    const div=document.createElement('div');
+    div.className='round';
+    div.innerHTML='<div class="round-header">Ronda '+(i+1)+'</div>'+
       '<div class="round-body">'+
       '<div class="agent"><div class="agent-name"><span class="dot analyst"></span>Analyst</div><div class="agent-text">'+r.analyst.replace(/`json|`/g,'').substring(0,600)+'</div></div>'+
       '<div class="agent"><div class="agent-name"><span class="dot devil"></span>Devil\'s Advocate</div><div class="agent-text">'+r.devil.replace(/`json|`/g,'').substring(0,600)+'</div></div>'+
       '</div>';
     rounds.appendChild(div);
   });
-
-  document.getElementById('kelly-cards').innerHTML =
+  document.getElementById('kelly-cards').innerHTML=
     '<div class="kelly-card"><div class="kelly-label">Kelly completo</div><div class="kelly-val '+(m.kelly>0.01?'green':'red')+'">'+(m.kelly*100).toFixed(2)+'%</div></div>'+
     '<div class="kelly-card"><div class="kelly-label">Kelly 1/4</div><div class="kelly-val amber">'+(m.kelly*25).toFixed(2)+'%</div></div>'+
     '<div class="kelly-card"><div class="kelly-label">Stake recomendado</div><div class="kelly-val blue">$'+Math.min(m.kelly*500,40).toFixed(0)+'</div></div>'+
     '<div class="kelly-card"><div class="kelly-label">Edge</div><div class="kelly-val '+(m.edge>=0?'green':'red')+'">'+(m.edge*100).toFixed(1)+'%</div></div>';
-
-  if (kellyChart) { kellyChart.destroy(); kellyChart = null; }
-  kellyChart = new Chart(document.getElementById('kelly-chart').getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: ['Prob. mercado','Prob. estimada','Edge absoluto'],
-      datasets: [{data:[(m.probability*100).toFixed(1),(Math.max(0,m.estimated)*100).toFixed(1),(Math.abs(m.edge)*100).toFixed(1)],backgroundColor:['#5a9cf8','#5dca8f',m.edge>=0?'#5dca8f':'#e05555'],borderRadius:4}]
-    },
+  if(kellyChart){kellyChart.destroy();kellyChart=null;}
+  kellyChart=new Chart(document.getElementById('kelly-chart').getContext('2d'),{
+    type:'bar',
+    data:{labels:['Prob. mercado','Prob. estimada','Edge absoluto'],datasets:[{data:[(m.probability*100).toFixed(1),(Math.max(0,m.estimated)*100).toFixed(1),(Math.abs(m.edge)*100).toFixed(1)],backgroundColor:['#5a9cf8','#5dca8f',m.edge>=0?'#5dca8f':'#e05555'],borderRadius:4}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'%',color:'#555'},grid:{color:'#1e1e1e'}},x:{ticks:{color:'#555'},grid:{display:false}}}}
   });
-
-  const box = document.getElementById('decision-box');
-  box.className = 'decision-box '+(m.decision==='BET'?'bet':'nobet');
-  document.getElementById('decision-label').className = 'decision-label '+(m.decision==='BET'?'bet':'nobet');
-  document.getElementById('decision-label').textContent = m.decision;
-  document.getElementById('decision-reason').textContent = m.reason.substring(0,800);
-
+  const box=document.getElementById('decision-box');
+  box.className='decision-box '+(m.decision==='BET'?'bet':'nobet');
+  document.getElementById('decision-label').className='decision-label '+(m.decision==='BET'?'bet':'nobet');
+  document.getElementById('decision-label').textContent=m.decision;
+  document.getElementById('decision-reason').textContent=m.reason.substring(0,800);
   switchTab('debate');
   document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function switchTab(name) {
-  const names = ['debate','riesgo','decision'];
+  const names=['debate','riesgo','decision'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',names[i]===name));
   document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');

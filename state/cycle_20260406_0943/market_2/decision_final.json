@@ -1,0 +1,25 @@
+{
+  "decision": "{\n  \"decision\": \"NO BET\",\n  \"razon\": \"El edge es 0.0 con Kelly fraccionado de 0.0, y el Devil's Advocate concluyó edge_debil tras 3 rondas. Los riesgos no descontados (lesiones de SGA/Holmgren, matchups de playoffs, cambios salariales) invalidan cualquier ventaja aparente.\",\n  \"stake_usdc\": 0.0,\n  \"confianza\": \"baja\",\n  \"mercado_id\": \"Will the Oklahoma City Thunder win the 2026 NBA Finals?\",\n  \"pregunta\": \"¿Ganará Oklahoma City Thunder la NBA Finals 2026?\"\n}",
+  "mercado": {
+    "id": "553856",
+    "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+    "probability": 0.385,
+    "volume": 6008411.5833349,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 5.5
+  },
+  "prob_estimada": 0.385,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.0,
+    "kelly_fraccionado": 0.0,
+    "apostar": false,
+    "edge": 0.0,
+    "stake_kelly_usdc": 0.0,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 0.0,
+    "limitado_por_max": false
+  }
+}

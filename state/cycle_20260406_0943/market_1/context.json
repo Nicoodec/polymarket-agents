@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "561370",
+    "question": "Will Kon Knueppel win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.3695,
+    "volume": 707837.8100200003,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 6.5
+  },
+  "noticias": [
+    {
+      "titulo": "2025-26 NBA Rookie of the Year Odds and Favorites",
+      "resumen": "See current odds on the 2025-26 NBA Rookie of the Year, with favorites, longshots, stats and betting insights.",
+      "fuente": "FOX Sports",
+      "url": "https://www.foxsports.com/articles/nba/2025-26-nba-rookie-of-the-year-odds-and-favorites",
+      "fecha": "2025-10-09T22:48:00+00:00"
+    },
+    {
+      "titulo": "Kon Knueppel now favored over Cooper Flagg for NBA Rookie of the Year",
+      "resumen": "These are unsettled times for the NBA's rookie class coming out of the league's All-Star break and less than six weeks remaining in the 2025-26 regular season. There's a new betting favorite to win rookie of the year, and it's not Cooper Flagg for the ...",
+      "fuente": "AZ Central",
+      "url": "https://www.azcentral.com/story/sports/nba/2026/03/04/nba-rookie-power-rankings-kon-knueppel-cooper-flagg-injury/88964624007/",
+      "fecha": "2026-03-04T00:02:00+00:00"
+    },
+    {
+      "titulo": "Kon Knueppel Favored Over Cooper Flagg in Latest NBA Rookie of the Year Odds After Making History",
+      "resumen": "Charlotte Hornets sharpshooter Kon Knueppel is the new favorite to take home Rookie of the Year honors for the 2025-26 season. Knueppel now owns the best consensus Rookie of the Year odds at -125, according to Action Network. Meanwhile, Dallas Mavericks ...",
+      "fuente": "Bleacher Report",
+      "url": "https://bleacherreport.com/articles/25401492-kon-knueppel-favored-over-cooper-flagg-latest-nba-rookie-year-odds-after-making-history",
+      "fecha": "2026-02-27T00:00:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg Says It's 'All Love' Between Him and Kon Knueppel Amid Rookie of the Year Race",
+      "resumen": "The former Duke teammates are the two favorites to win the coveted NBA award after two standout rookie seasons.",
+      "fuente": "Sports Illustrated",
+      "url": "https://www.msn.com/en-us/sports/nba/cooper-flagg-says-its-all-love-between-him-and-kon-knueppel-amid-rookie-of-the-year-race/ar-AA1ZWden",
+      "fecha": "2026-04-01T22:43:00+00:00"
+    },
+    {
+      "titulo": "Kon Knueppel Gets Wild NBA Take While Leading Rookie Of The Year Odds",
+      "resumen": "Whether it's his three-point shooting, size, consistency, or early impact on winning with the Hornets, Knueppel, the fourth overall pick in the 2025 NBA Draft, is currently the favorite to win the Rookie of the Year award this season.",
+      "fuente": "Heavy",
+      "url": "https://heavy.com/sports/nba/charlotte-hornets/kon-knueppel-wild-take-rookie-award-race-odds/",
+      "fecha": "2026-03-27T17:09:00+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "2025–26NBAseason - Wikipedia",
+      "resumen": "The2025–26NBAseason is the 80th seasonoftheNationalBasketballAssociation.On October 15, 2025, Malcolm Brogdon announced his retirement from professional basketball. He played for five teams in his nine-yearcareer and was named theNBARookieoftheYearin 2017.[8].",
+      "url": "https://en.wikipedia.org/wiki/2025–26_NBA_season"
+    },
+    {
+      "titulo": "Cooper Flagg Says It's ‘All Love’ Between Him andKonKnueppel...",
+      "resumen": "The top two picks forwinningthe2025–26NBARookieoftheYearawardhappen to be former Duke teammates: Cooper Flagg andKonKnueppel. Entering thisNBAseason, it seemed highly likely that Flagg would run away with theawardas the No. 1 pick.",
+      "url": "https://www.si.com/nba/mavericks/cooper-flagg-kon-knueppel-rookie-of-the-year"
+    },
+    {
+      "titulo": "KonKnueppelStats, Height, Weight... |Basketball-Reference.com",
+      "resumen": "KonKnueppelII Instagram:kon2knueppel. Position: Small Forward Shoots: Right. 6-6, 215lb (198cm, 97kg).WinShares An estimateofthenumber ofwinscontributed by a player.2025-26NBA7.6 (18th).",
+      "url": "https://www.basketball-reference.com/players/k/knuepko01.html"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T09:43:35.296226"
+}

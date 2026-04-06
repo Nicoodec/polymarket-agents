@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "561365",
+    "question": "Will Cooper Flagg win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.6295,
+    "volume": 413947.0235919991,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 5.2
+  },
+  "noticias": [
+    {
+      "titulo": "Cooper Flagg Hits All-Time Low as NBA Legends Leave No Doubt Over Career Setback",
+      "resumen": "NBA Rookie of the Year race might just end with a plot twist. From the second he declared for the draft, Cooper Flagg became the undisputed, presumed \"lock\" for the award.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/cooper-flagg-hits-time-low-103721727.html",
+      "fecha": "2026-03-16T19:45:00+00:00"
+    },
+    {
+      "titulo": "Mavericks' Jason Kidd thinks it would be 'unbelievable' for Cooper Flagg not to win Rookie of the Year",
+      "resumen": "Mavericks head coach Jason Kidd is all-in on his support of Cooper Flagg after he scored 51 points in a win over the Hornets.",
+      "fuente": "ClutchPoints",
+      "url": "https://clutchpoints.com/nba/dallas-mavericks/mavericks-news-jason-kidd-thinks-it-would-be-unbelievable-for-cooper-flagg-not-to-win-rookie-of-the-year",
+      "fecha": "2026-04-04T05:54:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg gets blown out in ESPN's Rookie of the Year Straw Poll",
+      "resumen": "But it doesn't mean that the race between the Mavericks' Cooper Flagg and the Charlotte Hornets' Kon Knueppel isn't close.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/cooper-flagg-gets-blown-espn-140300755.html",
+      "fecha": "2026-04-03T16:26:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg Sounds Off on Rookie of the Year Race After 51-PT Game",
+      "resumen": "Cooper Flagg breaks his silence after a 51-point performance, weighing in on the ongoing Rookie of the Year race.",
+      "fuente": "Heavy",
+      "url": "https://heavy.com/sports/nba/dallas-mavericks/cooper-flagg-sounds-off-51-pt-game/",
+      "fecha": "2026-04-04T16:42:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg's 51-Point Game Causes Massive Shift in NBA Rookie of the Year Odds",
+      "resumen": "Dallas Mavericks rookie sensation Cooper Flagg isn't letting anyone call the Rookie of the Year race just yet. The No. 1 overall pick in the 2025 NBA Draft sco",
+      "fuente": "Sports Illustrated",
+      "url": "https://www.si.com/betting/cooper-flagg-51-point-game-causes-massive-shift-in-nba-rookie-of-the-year-odds",
+      "fecha": "2026-04-04T17:50:00+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "Cooper Flagg's Rise: Securing Back-to-Back NBA Rookie of the",
+      "resumen": "On January 2, 2026,theNBAannounced that MavericksrookieCooperFlaggwontheWestern Conference KIARookieoftheMonthawardfor December.",
+      "url": "https://gciot.org/article/cooper-flagg-s-rise-securing-back-to-back-nba-rookie-of-the-month-awards"
+    },
+    {
+      "titulo": "NBA rookie roundtable: What’s wrong with Cooper Flagg?",
+      "resumen": "The2025-26NBAseason is only a few weeks old, but you can already see why there was so much excitement for thisrookieclass, led by No.",
+      "url": "https://okcsportsradio.com/2025/11/10/nba-rookie-roundtable-whats-wrong-with-cooper-flagg-whats-right-with-vj-edgecombe-more-early-questions/"
+    },
+    {
+      "titulo": "NBA Rookie Rankings 2025: Cooper Flagg vs Kon Knueppel - Who's",
+      "resumen": "TheNBA'sRookieoftheYearrace is heating up, and it's a thrilling battle between two former Duke teammates,CooperFlaggand Kon Knueppel.",
+      "url": "https://horizonsonline.org/article/nba-rookie-rankings-2025-cooper-flagg-vs-kon-knueppel-who-s-the-better-rookie"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T10:33:43.610712"
+}
