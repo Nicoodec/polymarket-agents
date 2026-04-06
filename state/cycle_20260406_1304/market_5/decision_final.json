@@ -1,0 +1,25 @@
+{
+  "decision": "{\n  \"decision\": \"NO BET\",\n  \"razon\": \"Kelly fraccionado (0.31%) está por debajo del umbral del 1% requerido, el edge de 0.01 es demasiado pequeño y la confianza del Analyst es solo media. Los factores de riesgo incorporados (lesiones, Olimpiadas 2026, rotación de roster) invalidan la ventaja detectada.\",\n  \"stake_usdc\": 0.0,\n  \"confianza\": \"baja\",\n  \"mercado_id\": \"Will the Colorado Avalanche win the 2026 NHL Stanley Cup\",\n  \"pregunta\": \"¿Ganará Colorado Avalanche la Copa Stanley 2026?\"\n}",
+  "mercado": {
+    "id": "553828",
+    "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+    "probability": 0.2,
+    "volume": 13376036.153753076,
+    "resolves_at": "2026-06-30",
+    "category": "unknown",
+    "days_to_resolve": 84,
+    "score": 4.0
+  },
+  "prob_estimada": 0.21,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.0125,
+    "kelly_fraccionado": 0.0031,
+    "apostar": false,
+    "edge": 0.01,
+    "stake_kelly_usdc": 6.2,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 6.2,
+    "limitado_por_max": false
+  }
+}

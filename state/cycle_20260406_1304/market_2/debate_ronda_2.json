@@ -1,0 +1,6 @@
+{
+  "ronda": 2,
+  "analyst": "{\n  \"ronda\": 2,\n  \"probabilidad_estimada\": 0.42,\n  \"intervalo_confianza\": {\"min\": 0.35, \"max\": 0.49},\n  \"confianza\": \"media\",\n  \"argumentos\": [\n    \"La base rate de back-to-back títulos en la NBA es del 15%, con el Thunder siendo la única franquicia con 2 títulos consecutivos en 2025-2026\",\n    \"El Thunder tiene el mejor récord de la temporada regular (68-14) y la mejor defensa en la historia reciente\",\n    \"La fatiga del equipo tras los playoffs de 2025 es un factor real, pero su profundidad de plantilla mitiga esto\",\n    \"La probabilidad implícita del mercado (0.385) es inferior a mi estimación ajustada por momentum\"\n  ],\n  \"factores_de_riesgo\": [\n    \"Lesiones clave en los playoffs de 2026 (Shai Gilgeous-Alexander, Chet Holmgren)\",\n    \"NBA Eastern Conference más fuerte de lo proyectado (Celtics, Bucks, Knicks)\",\n    \"Varianza de playoffs: 10-15% de los equipos con mejor récord no ganan el título\"\n  ],\n  \"probabilidad_final\": 0.42\n}",
+  "devil": "",
+  "prob_extraida": 0.42
+}

@@ -1,0 +1,25 @@
+{
+  "decision": "",
+  "mercado": {
+    "id": "553856",
+    "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+    "probability": 0.385,
+    "volume": 6009464.2248569,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 5.5
+  },
+  "prob_estimada": 0.39,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.0081,
+    "kelly_fraccionado": 0.002,
+    "apostar": false,
+    "edge": 0.005,
+    "stake_kelly_usdc": 4.0,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 4.0,
+    "limitado_por_max": false
+  }
+}

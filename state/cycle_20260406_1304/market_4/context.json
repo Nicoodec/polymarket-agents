@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "553866",
+    "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+    "probability": 0.167,
+    "volume": 11726926.966001876,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 4.4
+  },
+  "noticias": [
+    {
+      "titulo": "NBA Playoff Picture 2026, Updated Bracket, Standings After Spurs Clinch Spot",
+      "resumen": "After consecutive 22-60 finishes in 2023 and 2024, the Spurs improved to 34-48 during their 2024-25 campaign. Considering ...",
+      "fuente": "Bleacher Report",
+      "url": "https://bleacherreport.com/articles/25408741-nba-playoff-picture-2026-updated-bracket-standings-after-spurs-clinch-spot",
+      "fecha": "2026-03-18T23:00:00+00:00"
+    },
+    {
+      "titulo": "2026 NBA Championship Odds: Spur of the Moment",
+      "resumen": "The latest 2026 NBA Championship odds and analysis, with the Oklahoma City Thunder (+130) drawing the shortest odds to win.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/2026-nba-championship-odds-thunder-150100421.html",
+      "fecha": "2026-03-31T14:23:18+00:00"
+    },
+    {
+      "titulo": "2026 NBA Playoff Picture, Play-In Standings and Bracket Predictions After April 4",
+      "resumen": "Nikola Jokic and Co. play Portland and Memphis on Monday and Wednesday, both of which are expected to produce wins. The ...",
+      "fuente": "Bleacher Report",
+      "url": "https://bleacherreport.com/articles/25414754-2026-nba-playoff-picture-play-standings-and-bracket-predictions-after-april-4",
+      "fecha": "2026-04-05T14:23:18+00:00"
+    },
+    {
+      "titulo": "How and where to buy San Antonio Spurs home playoff tickets",
+      "resumen": "San Antonio Spurs home playoff tickets are set to go on sale this week for the first time this decade. As of Wednesday, some ...",
+      "fuente": "KSAT",
+      "url": "https://www.ksat.com/news/local/2026/04/01/how-and-where-to-buy-san-antonio-spurs-home-playoff-tickets/",
+      "fecha": "2026-04-02T14:23:18+00:00"
+    },
+    {
+      "titulo": "NBA playoff watch: Seeds unsettled entering final week",
+      "resumen": "The Pistons are the 1-seed, but there's plenty still left to be decided. Plus, updated playoff projections, draft lottery standings after Sunday.",
+      "fuente": "ESPN on MSN",
+      "url": "https://www.msn.com/en-us/sports/nba/nba-playoff-watch-seeds-unsettled-entering-final-week/ar-AA1ZhCck?ocid=BingNewsVerp",
+      "fecha": "2026-02-13T14:23:18+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "2026NBAplayoffs - Wikipedia",
+      "resumen": "The2026NBAplayoffs is the upcoming postseason tournament of theNationalBasketballAssociation's 2025–26 season. The playoffs will begin on April 18 and will end with the conclusion ofthe2026NBAFinals.",
+      "url": "https://en.wikipedia.org/wiki/2026_NBA_playoffs"
+    },
+    {
+      "titulo": "SanAntonioSpursScores,Statsand Highlights - ESPN",
+      "resumen": "Visit ESPN forSanAntonioSpurslive scores, video highlights, and latest news. Find standings and the full 2025-26 season schedule.",
+      "url": "https://www.espn.com/nba/team/_/name/sa/san-antonio-spurs"
+    },
+    {
+      "titulo": "instagram.com/spurs",
+      "resumen": "The site owner hides the web page description.",
+      "url": "https://www.instagram.com/spurs/"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T14:23:20.046298"
+}

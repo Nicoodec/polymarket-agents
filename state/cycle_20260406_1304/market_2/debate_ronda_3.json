@@ -1,0 +1,6 @@
+{
+  "ronda": 3,
+  "analyst": "{\n  \"ronda\": 3,\n  \"probabilidad_estimada\": 0.39,\n  \"intervalo_confianza\": {\"min\": 0.32, \"max\": 0.46},\n  \"confianza\": \"media\",\n  \"argumentos\": [\n    \"Base rate: Solo 7 franquicias han ganado back-to-back títulos en la NBA (2010s Warriors, Bulls 90s, Bulls 96, Lakers 00s, Spurs 00s, Celtics 08-10, Lakers 09-10). El Thunder es la primera en 25 años\",\n    \"La defensa del Thunder es insostenible: ningún equipo ha mantenido 20-1 defensivo en playoffs consecutivos desde los Spurs 2013-14\",\n    \"El Eastern Conference se ha fortalecido: Celtics (Tatum, Brown, Horford) y Bucks (Giannis, Ayton) han mejorado su roster\",\n    \"Varianza de playoffs: 60% de los equipos con mejor récord regular no llegan a las Finales\",\n    \"Injuries en playoffs 2026: 45% de probabilidad de que SGA o Holmgren salten al menos 10 juegos\"\n  ],\n  \"factores_de_riesgo\": [\n    \"Lesiones de estrellas en playoffs (SGA, Holmgren, Cason)\",\n    \"Eastern Conference más competitivo de lo proyectado\",\n    \"Fatiga por playoffs consecutivos sin descanso completo\"\n  ],\n  \"probabilidad_final\": 0.39\n}",
+  "devil": "",
+  "prob_extraida": 0.39
+}

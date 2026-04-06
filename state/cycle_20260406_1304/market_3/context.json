@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "561365",
+    "question": "Will Cooper Flagg win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.6475,
+    "volume": 417462.6088069991,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 5.2
+  },
+  "noticias": [
+    {
+      "titulo": "Mavericks' Jason Kidd thinks it would be 'unbelievable' for Cooper Flagg not to win Rookie of the Year",
+      "resumen": "Mavericks head coach Jason Kidd is all-in on his support of Cooper Flagg after he scored 51 points in a win over the Hornets.",
+      "fuente": "ClutchPoints",
+      "url": "https://clutchpoints.com/nba/dallas-mavericks/mavericks-news-jason-kidd-thinks-it-would-be-unbelievable-for-cooper-flagg-not-to-win-rookie-of-the-year",
+      "fecha": "2026-04-04T05:54:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg gets blown out in ESPN's Rookie of the Year Straw Poll",
+      "resumen": "But it doesn't mean that the race between the Mavericks' Cooper Flagg and the Charlotte Hornets' Kon Knueppel isn't close.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/cooper-flagg-gets-blown-espn-140300755.html",
+      "fecha": "2026-04-03T16:26:00+00:00"
+    },
+    {
+      "titulo": "NBA Rookie of the Year Odds: Cooper Flagg Skyrockets to Favorite After Consecutive Scoring Outbursts",
+      "resumen": "A complete flip in the odds to win the NBA's Rookie of the Year award has happened in less than a week. Dallas Mavericks star Cooper Flagg - the No. 1 overall p",
+      "fuente": "Sports Illustrated",
+      "url": "https://www.si.com/betting/nba-rookie-of-the-year-odds-cooper-flagg-skyrockets-to-favorite-after-consecutive-scoring-outbursts",
+      "fecha": "2026-04-06T11:54:00+00:00"
+    },
+    {
+      "titulo": "Give Cooper Flagg the Rookie of the Year award, you bums",
+      "resumen": "Mere hours after a straw poll of NBA media members said Charlotte Hornets forward Kon Knueppel was firmly in the lead for the NBA Rookie of the Year award as the 2025-26 season winds down, Cooper Flagg made a closing argument that would put Perry Mason to shame.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/cooper-flagg-rookie-award-bums-110500483.html",
+      "fecha": "2026-04-04T13:29:00+00:00"
+    },
+    {
+      "titulo": "Cooper Flagg's 51-Point Game Causes Massive Shift in NBA Rookie of the Year Odds",
+      "resumen": "Dallas Mavericks rookie sensation Cooper Flagg isn't letting anyone call the Rookie of the Year race just yet. The No. 1 overall pick in the 2025 NBA Draft sco",
+      "fuente": "Sports Illustrated",
+      "url": "https://www.si.com/betting/cooper-flagg-51-point-game-causes-massive-shift-in-nba-rookie-of-the-year-odds",
+      "fecha": "2026-04-04T17:50:00+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "Flagg passes Knueppel in ROY odds after 'statement' game",
+      "resumen": "DALLAS -- TheNBARookieoftheYearodds have flipped inCooperFlagg's favor after a historically spectacular weekend by the Dallas Mavericks ' teenage phenom. After scoring 96 points in a two ...",
+      "url": "https://www.espn.com/nba/story/_/id/48409452/flagg-passes-knueppel-roy-odds-statement-game"
+    },
+    {
+      "titulo": "NBA Rookie of the Year Odds: Kon Knueppel Remains Favored Over Cooper Flagg",
+      "resumen": "TheNBA'sRookieoftheYearrace is going down to the wire in the2025-26season, as No. 1 overall pickCooperFlaggtrails his college teammate Kon Knueppel i",
+      "url": "https://www.si.com/betting/nba-rookie-of-the-year-odds-kon-knueppel-remains-favored-over-cooper-flagg"
+    },
+    {
+      "titulo": "2026 NBA Rookie of the Year Odds Tracker - Mavs' Cooper Flagg Opens As ...",
+      "resumen": "Get the latest 2026NBARookieoftheYearodds and betting favorites. See how each player's odds change throughout the2025-26NBAseason.",
+      "url": "https://www.sportsbettingdime.com/nba/futures/rookie-of-the-year-odds/"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T13:59:41.207113"
+}

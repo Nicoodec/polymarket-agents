@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "553856",
+    "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+    "probability": 0.385,
+    "volume": 6009464.2248569,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 5.5
+  },
+  "noticias": [
+    {
+      "titulo": "Oklahoma City Thunder become first team to clinch NBA playoff berth",
+      "resumen": "For the third consecutive year, the Oklahoma City Thunder have clinched a trip to the NBA playoffs. They seek back-to-back ...",
+      "fuente": "USA TODAY",
+      "url": "https://www.usatoday.com/story/sports/nba/thunder/2026/03/17/oklahoma-city-thunder-clinch-2026-nba-playoff-berth/89202043007/",
+      "fecha": "2026-03-16T23:00:00+00:00"
+    },
+    {
+      "titulo": "OKC Thunder magic number to clinch top seed in West, NBA playoff picture",
+      "resumen": "What is OKC Thunder magic number to get No. 1 seed in Western Conference for 2026 NBA Playoffs? Where Thunder, Spurs fit in ...",
+      "fuente": "USA TODAY",
+      "url": "https://www.usatoday.com/story/sports/nba/thunder/2026/03/31/okc-thunder-magic-number-nba-playoffs-standings-western-conference-seeding/89410812007/",
+      "fecha": "2026-04-01T13:32:49+00:00"
+    },
+    {
+      "titulo": "Thunder clinch spot in NBA playoffs, become first team to punch ticket to 2026 postseason",
+      "resumen": "The Oklahoma City Thunder faced major expectations after going 68-14, securing the top playoff seed in the West and winning the NBA championship last season. An encore was going to be tough. While ...",
+      "fuente": "AOL",
+      "url": "https://www.aol.com/articles/thunder-clinch-spot-nba-playoffs-013225061.html",
+      "fecha": "2026-03-17T23:00:00+00:00"
+    },
+    {
+      "titulo": "Ranking 2026 NBA Finals contender tiers: Why Spurs, Celtics stand out next to Thunder",
+      "resumen": "The 2026 NBA Finals are scheduled to begin in 12 weeks. While this may seem like a lot of time, the 2025-26 regular season is winding down, and teams are beginning to solidify their status heading ...",
+      "fuente": "Yahoo! Sports",
+      "url": "https://sports.yahoo.com/articles/ranking-2026-nba-finals-contender-203636302.html",
+      "fecha": "2026-03-11T23:00:00+00:00"
+    },
+    {
+      "titulo": "OKC Thunder growing into NBA's top villain was inevitable | Mussatto",
+      "resumen": "The OKC Thunder's consistent success has turned them into the NBA's new villains, facing backlash and criticism.",
+      "fuente": "Yahoo Sports",
+      "url": "https://sports.yahoo.com/articles/okc-thunder-growing-nbas-top-113100247.html",
+      "fecha": "2026-04-02T13:32:49+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "2025 NBA Finals - Wikipedia",
+      "resumen": "Thebest-of-seven series ended withtheWestern Conference championOklahomaCityThunderdefeatingtheEastern Conference champion Indiana Pacers in ...",
+      "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals"
+    },
+    {
+      "titulo": "Insane statistic suggests Thunder are destined to win NBA",
+      "resumen": "Frankly, when looking atthehistoryoftheleague, one could make a case thattheyre destined to do so based on one specificstatistic.",
+      "url": "https://thunderousintentions.com/okc-thunder-insane-statistic-suggests-destined-to-win-nba-championship"
+    },
+    {
+      "titulo": "Thunder’s defense is so absurd the stats don’t even seem",
+      "resumen": "With their strong play, OKC has now become justthefourth team inNBAhistoryto register a 20-1 record or better, joiningthe2015-16 Warriors ...",
+      "url": "https://thunderousintentions.com/okc-thunder-defense-is-so-absurd-the-stats-don-t-even-seem-real"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T13:32:50.856296"
+}

@@ -1,0 +1,6 @@
+{
+  "ronda": 1,
+  "analyst": "",
+  "devil": "{\n  \"ronda\": 1,\n  \"concesiones\": [\n    \"El mercado refleja información pública válida sobre el equipo\",\n    \"Los datos de rendimiento (34-48) muestran mejora desde 22-60\",\n    \"Los Thunder son el favorito actual (+130) según los oddsmakers\"\n  ],\n  \"ataques\": [\n    \"Sesgo de disponibilidad: Las noticias recientes sobre mejora del Spurs (marzo-abril 2026) están sobreponderando información temporal vs. probabilidad de campeonato de 1 año completo\",\n    \"Sesgo de anclaje: La probabilidad del 16.7% está anclada al rendimiento reciente, no a la realidad de que el NBA tiene alta rotación de plantilla cada temporada\",\n    \"Información no considerada: No se menciona el draft lottery 2025-26, que podría cambiar radicalmente el panorama si el Spurs obtiene un pick alto\",\n    \"Escenarios de cola: Lesiones de estrellas del Thunder (Shai, Chet, Josh Giddey) o de otros contendientes, que invalidarían el edge del mercado\",\n    \"Liquidez aparente: 11M USDC de volumen parece alto pero podría ser manipulación de mercado o capital de pocos actores clave, no liquidez orgánica\",\n    \"Falta considerar: El impacto de la nueva regla de salary cap post-playoff que podría forzar cambios estructurales en el roster del Thunder\"\n  ],\n  \"veredicto_final\": \"edge_debil\"\n}",
+  "prob_extraida": null
+}

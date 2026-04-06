@@ -1,0 +1,6 @@
+{
+  "ronda": 3,
+  "analyst": "{\n  \"ronda\": 3,\n  \"probabilidad_estimada\": 0.21,\n  \"intervalo_confianza\": {\"min\": 0.14, \"max\": 0.28},\n  \"confianza\": \"media\",\n  \"argumentos\": [\"Argumento Devil 1: Lesiones de jugadores clave en Avalanche - SOLIDO. Ajusto probabilidad a -0.02 tras verificar datos de bajas recientes\", \"Argumento Devil 2: Dallas Stars path difícil es exagerado - PARCIALMENTE SOLIDO. Mantengo componente pero bajo 0.01\", \"Argumento Devil 3: Mercado 0.20 es conservador por naturaleza de apuestas NHL - SOLIDO. Mercado suele sobreponderar equipos establecidos, mi 0.21 refleja esto\"],\n  \"factores_de_riesgo\": [\"Incidencia de lesiones en playoffs de 2026\", \"Cambio en composición roster antes de playoffs\", \"Variables climáticas de sede de playoffs\"],\n  \"probabilidad_final\": 0.21\n}",
+  "devil": "",
+  "prob_extraida": 0.21
+}

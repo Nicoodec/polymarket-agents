@@ -1,0 +1,25 @@
+{
+  "decision": "",
+  "mercado": {
+    "id": "561365",
+    "question": "Will Cooper Flagg win the 2025–26 NBA Rookie of the Year award?",
+    "probability": 0.6475,
+    "volume": 417462.6088069991,
+    "resolves_at": "2026-05-18",
+    "category": "politics",
+    "days_to_resolve": 41,
+    "score": 5.2
+  },
+  "prob_estimada": 0.6475,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.0,
+    "kelly_fraccionado": 0.0,
+    "apostar": false,
+    "edge": 0.0,
+    "stake_kelly_usdc": 0.0,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 0.0,
+    "limitado_por_max": false
+  }
+}

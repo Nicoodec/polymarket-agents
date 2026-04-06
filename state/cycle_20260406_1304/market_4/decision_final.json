@@ -1,0 +1,25 @@
+{
+  "decision": "{\n  \"decision\": \"NO BET\",\n  \"razon\": \"El edge es de 0.0, el Kelly fraccionado es 0.0 y el Devil's Advocate dio veredicto edge_debil en ambas rondas finales. Además, hay múltiples eventos de riesgo (lesiones, draft lottery, salary cap) que podrían invalidar cualquier valor potencial.\",\n  \"stake_usdc\": 0.0,\n  \"confianza\": \"baja\",\n  \"mercado_id\": \"Will the San Antonio Spurs win the 2026 NBA Finals?\",\n  \"pregunta\": \"¿Debería apostar en que los San Antonio Spurs ganen las Finals 2026 del NBA?\"\n}",
+  "mercado": {
+    "id": "553866",
+    "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+    "probability": 0.167,
+    "volume": 11726926.966001876,
+    "resolves_at": "2026-07-01",
+    "category": "sports",
+    "days_to_resolve": 85,
+    "score": 4.4
+  },
+  "prob_estimada": 0.167,
+  "confianza": "media",
+  "kelly": {
+    "kelly_completo": 0.0,
+    "kelly_fraccionado": 0.0,
+    "apostar": false,
+    "edge": 0.0,
+    "stake_kelly_usdc": 0.0,
+    "stake_max_usdc": 40.0,
+    "stake_final_usdc": 0.0,
+    "limitado_por_max": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "mercado": {
+    "id": "553828",
+    "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+    "probability": 0.2,
+    "volume": 13376036.153753076,
+    "resolves_at": "2026-06-30",
+    "category": "unknown",
+    "days_to_resolve": 84,
+    "score": 4.0
+  },
+  "noticias": [
+    {
+      "titulo": "Updated 2026 NHL Playoff Picture, Wild Card Hunt and Stanley Cup Bracket Odds",
+      "resumen": "The 2026 NHL Playoffs are rapidly approaching and, for the most part, the field of teams competing for the Stanley Cup ...",
+      "fuente": "Bleacher Report",
+      "url": "https://bleacherreport.com/articles/25414279-updated-2026-nhl-playoff-picture-wild-card-hunt-and-stanley-cup-bracket-odds",
+      "fecha": "2026-04-03T14:45:51+00:00"
+    },
+    {
+      "titulo": "Stanley Cup Playoffs Buzz: Sharks go for 5th straight win, host Predators in wild-card showdown",
+      "resumen": "The Kings (30-26-19) are even with the Predators and Sharks in the race for the second wild card in the West but have just 19 ...",
+      "fuente": "National Hockey League",
+      "url": "https://www.nhl.com/news/stanley-cup-playoffs-buzz-news-and-notes-april-4-2026",
+      "fecha": "2026-04-04T14:45:51+00:00"
+    },
+    {
+      "titulo": "2026 NHL playoff picture: Standings, schedule, bracket, seedings as Stanley Cup playoff race heats up",
+      "resumen": "There should be plenty of drama down the stretch ...",
+      "fuente": "CBS Sports on MSN",
+      "url": "https://www.msn.com/en-us/sports/ice_hockey/2026-nhl-playoff-picture-standings-schedule-bracket-seedings-as-stanley-cup-playoff-race-heats-up/ar-AA1ZoeST?ocid=BingNewsVerp",
+      "fecha": "2026-03-26T14:45:51+00:00"
+    },
+    {
+      "titulo": "Lightning clinch Stanley Cup Playoff berth for 9th straight season",
+      "resumen": "The Tampa Bay Lightning clinched a berth in the Stanley Cup Playoffs for the ninth straight season on Saturday.",
+      "fuente": "National Hockey League",
+      "url": "https://www.nhl.com/news/tampa-bay-lightning-clinch-2025-2026-nhl-stanley-cup-playoffs-berth",
+      "fecha": "2026-04-05T14:45:51+00:00"
+    },
+    {
+      "titulo": "Stars’ nightmare seeding, matchup scenarios for 2026 NHL Playoffs",
+      "resumen": "The Stars have the talent to make a long run, but they also have the most difficult path in the Stanley Cup playoffs ...",
+      "fuente": "ClutchPoints",
+      "url": "https://clutchpoints.com/nhl/dallas-stars/stars-nightmare-seeding-matchup-scenarios-2026-nhl-playoffs",
+      "fecha": "2026-04-03T14:45:51+00:00"
+    }
+  ],
+  "contexto_web": [
+    {
+      "titulo": "2022 Stanley Cup Final - Wikipedia",
+      "resumen": "The2022StanleyCupFinal wasthechampionship series oftheNational Hockey League 's (NHL) 2021–22 season andtheculmination ofthe2022 ...",
+      "url": "https://en.wikipedia.org/wiki/2022_Stanley_Cup_Final"
+    },
+    {
+      "titulo": "2022 Stanley Cup Finals - Wikipedia",
+      "resumen": "The2022StanleyCupFinals wasthechampionship series oftheNational Hockey League 's (NHL) 2021–22 season andtheculmination ofthe2022 ...",
+      "url": "https://en.wikipedia.org/wiki/2022_Stanley_Cup_Finals"
+    },
+    {
+      "titulo": "2026 Stanley Cup Odds: Avalanche Lead Before Olympics",
+      "resumen": "Now, withtheColoradoAvalancheleading, remembering this is key for those looking at2026StanleyCupOdds . ...TheAvalanche’ s strong ...",
+      "url": "https://www.wepayaffiliates.com/2026-stanley-cup-odds-avalanche-lead-before-olympics/"
+    }
+  ],
+  "total_fuentes": 8,
+  "timestamp": "2026-04-06T14:45:53.568900"
+}
